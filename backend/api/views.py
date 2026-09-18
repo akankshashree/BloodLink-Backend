@@ -286,8 +286,8 @@ def donor_profile_api(request):
         )
 
     valid_blood_groups = dict(
-        DonorProfile.BLOOD_GROUP_CHOICES
-    )
+    DonorProfile.BLOOD_GROUPS
+)
 
     if blood_group not in valid_blood_groups:
 
