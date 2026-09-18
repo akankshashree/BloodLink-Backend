@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
 
     "rest_framework",
+    "corsheaders",
 
     "accounts",
     "donors",
@@ -52,8 +53,10 @@ INSTALLED_APPS = [
 # =========================================================
 
 MIDDLEWARE = [
-    "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
+   "django.middleware.security.SecurityMiddleware",
+   "whitenoise.middleware.WhiteNoiseMiddleware",
+
+    "corsheaders.middleware.CorsMiddleware",
 
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -229,6 +232,10 @@ CSRF_TRUSTED_ORIGINS = [
     if origin.strip()
 ]
 
+CSRF_TRUSTED_ORIGINS.append(
+    "https://blood-link-frontend-sooty.vercel.app"
+)
+
 
 # =========================================================
 # DJANGO REST FRAMEWORK
@@ -239,3 +246,10 @@ REST_FRAMEWORK = {
         "rest_framework.permissions.IsAuthenticated",
     ],
 }
+# =========================================================
+# CORS
+# =========================================================
+
+CORS_ALLOWED_ORIGINS = [
+    "https://blood-link-frontend-sooty.vercel.app",
+]
