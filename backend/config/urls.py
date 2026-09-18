@@ -1,10 +1,13 @@
 from django.contrib import admin
-from django.shortcuts import render
+from django.http import JsonResponse
 from django.urls import include, path
 
 
 def home(request):
-    return render(request, "index.html")
+    return JsonResponse({
+        "status": "ok",
+        "message": "BloodLink API is running"
+    })
 
 
 urlpatterns = [
